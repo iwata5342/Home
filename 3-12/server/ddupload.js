@@ -6,7 +6,7 @@
 
 let currinfo = [];  // これまで歩んだファイルパスを格納
 let current;  // currentdirの情報
-let homedir;  // homedirの情報
+let homedir;  // homedirの情報 使わないかも
 let uid = 12023004;
 let uname = "OASYS2204";
 let colname = ["kisuu", "gusu"];
