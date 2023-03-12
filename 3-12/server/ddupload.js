@@ -1,7 +1,7 @@
 // JavaScript source code
 
 /** @bug
- * 1.ターミナルの特殊文字
+ * 1.uploadボタンの消失
  */
 
 let currinfo = [];  // これまで歩んだファイルパスを格納
