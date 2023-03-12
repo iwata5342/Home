@@ -243,11 +243,9 @@ function initDir(currdir, uid) {
       let dirname = text.substring(nameIndex + 1);
       divs[1].innerHTML = dirname;
 
-      let j = 0;
-      while (j < divs.length) {
+      for (let j = 0; j < divs.length; ++j) {
         divs[j].setAttribute('class', 'bg-transparent')
         bgcolor.appendChild(divs[j]);
-        j++;
       }
 
       let currdir = document.getElementById('currdir');
