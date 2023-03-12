@@ -12,7 +12,7 @@ let uname = "OASYS2204"; // 取得方法不明
 let colname = ["kisuu", "gusu"]; // 使わないかも
 let cmdset = setCmdSet();  // コマンド一覧作成
 let depth = 0;  // ホームディレクトリからの深度
-const texttype = [ 'TXT', 'C', 'CPP' ];
+const texttype = [ 'TXT', 'C', 'CPP', ' SQL', 'Java' ];
 let hometext = [];
 let currtext = []
 
