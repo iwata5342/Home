@@ -224,6 +224,8 @@ function initDir(currdir, uid) {
       const jsonObj = JSON.parse(xhr.responseText);
       let filesinfo = jsonObj;
       let c = 0;
+
+      /* 使わないかも */
       if (homedir == null) {
         homedir = filesinfo
       }
