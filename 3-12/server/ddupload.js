@@ -182,16 +182,14 @@ function initDir(currdir, uid) {
 
   /* 一覧下部のコマンドボタン初期化処理 */
   const cmds = current[depth].cmds;
-  if (cmds.includes('作成') === true) {
+  if (cmds.includes('作成')) {
     if ($('mkdirtext').disabled) {
       $('mkdirtext').disabled = false;
       $('mkdir').disabled = false;
     }
   } else if (!($('mkdirtext').disabled)) {
-    if (!($('mkdirtext').disabled)) {
-      $('mkdirtext').disabled = true;
-      $('mkdir').disabled = true;
-    }
+    $('mkdirtext').disabled = true;
+    $('mkdir').disabled = true;
   }
 
   if (currdir.cmds.includes(' UP ') === true) {
