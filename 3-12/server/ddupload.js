@@ -192,18 +192,16 @@ function initDir(currdir, uid) {
     $('mkdir').disabled = true;
   }
 
-  if (currdir.cmds.includes(' UP ') === true) {
+  if (currdir.cmds.includes(' UP ')) {
     if ($('uploadButton').disabled) {
       $('uploadButton').disabled = false;
       $('clearButton').disabled = false;
       $('ftype').disabled = false;
     }
-  } else {
-    if (!($('uploadButton').disabled)) {
+  } else if (!($('uploadButton').disabled)) {
       $('uploadButton').disabled = true;
       $('clearButton').disabled = true;
       $('ftype').disabled = true
-    }
   }
 
   const xhr = new XMLHttpRequest();
