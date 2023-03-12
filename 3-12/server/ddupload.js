@@ -9,7 +9,6 @@ let current;  // currentdirの情報
 let homedir;  // homedirの情報 使わないかも
 let uid = 12023004; // 取得方法不明
 let uname = "OASYS2204"; // 取得方法不明
-let colname = ["kisuu", "gusu"]; // 使わないかも
 let cmdset = setCmdSet();  // コマンド一覧作成
 let depth = 0;  // ホームディレクトリからの深度
 const texttype = [ 'TXT', 'C', 'CPP', ' SQL', 'Java', 'HTML', 'CSS', ];
@@ -361,6 +360,7 @@ function ret() {
   initDir(current[depth], uid);
 }
 
+/* 使わないかも */
 function chIdToCmd(fno, cmdId) {
   const xhr = new XMLHttpRequest();
 
@@ -409,6 +409,7 @@ function download (fname) {
   }
 }
 
+/* 使わないかも */
 function remove(fname) {
   const xhr = new XMLHttpRequest();
   xhr.open("PUT", '/remove');
