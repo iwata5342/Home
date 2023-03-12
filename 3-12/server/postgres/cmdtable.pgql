@@ -1,0 +1,16 @@
+CREATE TABLE CMDTABLE(
+    CCODE SERIAL PRIMARY KEY NOT NULL,
+    CNAME VARCHAR(10) NOT NULL,
+    CATTR BIT(4) NOT NULL
+);
+
+INSERT INTO CMDTABLE (CNAME, CATTR)
+VALUES
+('移動', B'1000'),
+(' DP ', B'1000'),
+('表示', B'1000'),
+('差分', B'1000'),
+(' UP ', B'0100'),
+(' DL ', B'0010'),
+(' CL ', B'0001'),
+('削除', B'0001');

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled">Disabled</a>
+    </li>
+</ul>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>ファイル選択画面</title>
+        <link rel="stylesheet" href="file-choice.css">
+        <link rel="stylesheet" href="bootstrap.min.css" />
+        <link rel="stylesheet" href="prism.css" />
+        <link rel="stylesheet" href="gradbuttom.sass">
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="bootstrap-icons.css" />
+        <script src="ddupload.js"></script>
+        <script src="prism.js"></script>
+        <script src="jquery-3.6.4.min.js"></script>
+        <style>
+            #dropTarget {
+                width: 380px;
+                min-height: 100px;
+                border: 2px dotted rgba(135, 206, 250, 1.0);
+            }
+
+            #dropPrompt {
+                color: gray;
+                margin: 1em;
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="d-flex frex-low d-flex justify-content-center">
+            <div class="container-menu bg-body-secondary">
+                <form class="diff mt-5" action="" method="">
+                    <div class="d-flex justify-content-between">
+                        <select id="before" class="form-select form-select-sm me-1 form-control-plaintext" aria-label=".form-select-sm example" disabled>
+                        </select>
+                        <div></div>
+                        <select id="after" class="form-select form-select-sm form-control-plaintext ms-1" aria-label=".form-select-sm example" disabled>
+                        </select>
+                        <input type="submit" id="diffButton" class="btn btn-success align-self-start ms-1" value="差分" disabled>
+                    </div>
+                </form>
+                <form class="needs-validation mt-5" id="create">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <input id="mkdirtext" type="text" class="form-control" id="validationCustom01" placeholder="filename" required disabled>       
+                        </div>
+                        <div></div>
+                        <div  class="col-auto">
+                            <button id ="mkdir" class="btn btn-success ms-1 mt-1" type="submit" disabled>作成</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="mt-5">
+                    <div id="dropTarget" >
+                        <div id="dropPrompt">Please drop files here</div>
+                        <ul id="fileList" class="list-group"></ul>
+                    </div>
+                    
+                    <select id="ftype" class="form-select form-select-sm mt-1" aria-label=".form-select-sm example" disabled>
+                        <option value="1">EXE</option>
+                        <option value="2">TXT</option>
+                        <option value="3">C</option>
+                        <option value="4">CPP</option>
+                    </select>
+                    <div>
+                        <form>
+                            <div id="progressBarContainer" class="progress invisible mb-1">
+                                <div
+                                    id="progressBar"
+                                    class="progress-bar progress-bar-striped progress-bar-animated"
+                                    role="progressbar"
+                                ></div>
+                                <div>
+                                    <button type="button" id="uploadButton" class="btn btn-primary">
+                                        <i class="bi bi-upload"></i> Upload
+                                    </button>
+                                    <button type="button" id="clearButton" class="btn btn-secondary">
+                                        <i class="bi bi-x"></i> Clear
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="dir shadow bg-body rounded">
+                    <div id="currdir" class="border rounded border-success"></div>
+                </div>
+                <div id="ret" class="d-flex justify-content-end"></div>
+                <pre class=""><code id="terminal" class="language-c language-cpp line-numbers code-toolbar"></code></pre>
+            </div>
+            <div class="container-menu bg-body-secondary">
+            </div>
+        </div>
+    </body>
+</html>
