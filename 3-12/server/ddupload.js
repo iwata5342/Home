@@ -7,8 +7,8 @@
 let currinfo = [];  // これまで歩んだファイルパスを格納
 let current;  // currentdirの情報
 let homedir;  // homedirの情報 使わないかも
-let uid = 12023004;
-let uname = "OASYS2204";
+let uid = 12023004; // 取得方法不明
+let uname = "OASYS2204"; // 取得方法不明
 let colname = ["kisuu", "gusu"];
 let cmdset = setCmdSet();  // コマンド一覧作成
 let depth = 0;  // ホームディレクトリからの深度
