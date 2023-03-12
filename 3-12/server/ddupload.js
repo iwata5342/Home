@@ -280,7 +280,7 @@ function initDir(currdir, uid) {
         
         /* コマンドのセット部分。エラーあり。*/
         for (let cnt = 0; cnt < filesinfo[k].cmds.length; ++cnt) {
-          let command = filesinfo[k].cmds[cnt];
+          const command = filesinfo[k].cmds[cnt];
           if (command === '差分') {
             textFiles.push(filesinfo[k].name);
             continue;
@@ -290,7 +290,7 @@ function initDir(currdir, uid) {
             continue;
           }
 
-          let element = document.createElement("div");
+          const element = document.createElement("div");
           element.setAttribute('id', (cmdset.indexOf(filesinfo[k].cmds[cnt]) + 1));
           element.setAttribute('class', "btn btn-success btn-sm me-1 my-1");
           if (command === '移動') {
@@ -302,22 +302,20 @@ function initDir(currdir, uid) {
           divs[2].appendChild(element);
         }
 
-        j = 0;
-        while (j < divs.length) {
-          bgcolor.appendChild(divs[j]);
-          j++;
+        for (let l= 0; l < divs.length; ++l) {
+          bgcolor.appendChild(divs[l]);
         };
 
         if (texttype.includes(filesinfo[k].type)) {
           currtext.push(filesinfo[k]);
           let option = [ document.createElement("option"), document.createElement("option")];
-          for(let l = 0; l < option.length; ++l) {
-            let text = filesinfo[k].name;
-            let nameIndex = text.lastIndexOf('/');
-            let fname = text.substring(nameIndex + 1);
-            option[l].innerHTML = fname;
-            option[l].setAttribute('value', JSON.stringify(filesinfo[k]));
-            diffmenu[l].appendChild(option[l]);
+          for(let m = 0; m < option.length; ++m) {
+            const text = filesinfo[k].name;
+            const nameIndex = text.lastIndexOf('/');
+            const fname = text.substring(nameIndex + 1);
+            option[m].innerHTML = fname;
+            option[m].setAttribute('value', JSON.stringify(filesinfo[k]));
+            diffmenu[m].appendChild(option[l]);
           }
         }
         currdir.appendChild(bgcolor);
@@ -339,7 +337,7 @@ function initDir(currdir, uid) {
     }
 
     if (depth >= 1) {
-      if (document.getElementById('retbutton') === null) {
+      if ($('retbutton') === null) {
         const retButton = document.createElement('button');
         retButton.setAttribute('id', 'retbutton');
         retButton.setAttribute('class', 'btn btn-secondary btn-sm me-1 my-1')
