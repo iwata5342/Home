@@ -230,7 +230,7 @@ function initDir(currdir, uid) {
         homedir = filesinfo
       }
 
-      let bgcolor = document.createElement("div");
+      const bgcolor = document.createElement("div");
 
       bgcolor.setAttribute("class", "d-flex justify-content-between bg-gradient d-block bg-success bg-opacity-75 bg-gradient rounded-top currentdir text-dark nowdir");
       let divs = [
@@ -238,9 +238,9 @@ function initDir(currdir, uid) {
         document.createElement("div"),
         document.createElement("div")
       ];
-      let text = current[depth].name;
-      let nameIndex = text.lastIndexOf('/');
-      let dirname = text.substring(nameIndex + 1);
+      const text = current[depth].name;
+      const nameIndex = text.lastIndexOf('/');
+      const dirname = text.substring(nameIndex + 1);
       divs[1].innerHTML = dirname;
 
       for (let j = 0; j < divs.length; ++j) {
@@ -257,7 +257,7 @@ function initDir(currdir, uid) {
 
       for (let k = 0; k < filesinfo.length; k++) {
         currinfo.push(filesinfo[k]);
-        let bgcolor = document.createElement("div");
+        const bgcolor = document.createElement("div");
         if (k%2==1) {
           bgcolor.setAttribute("class", "d-flex justify-content-between bg-gradient d-block bg-success text-success bg-opacity-10");
         } else {
@@ -270,9 +270,9 @@ function initDir(currdir, uid) {
           document.createElement("div")
         ];
 
-        let text = filesinfo[k].name;
-        let nameIndex = text.lastIndexOf('/');
-        let dirname = text.substring(nameIndex + 1);
+        const text = filesinfo[k].name;
+        const nameIndex = text.lastIndexOf('/');
+        const dirname = text.substring(nameIndex + 1);
         divs[0].setAttribute('class', 'filename ms-1 mt-2');
         divs[0].innerHTML = dirname;
         
