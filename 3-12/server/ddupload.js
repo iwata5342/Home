@@ -208,7 +208,7 @@ function initDir(currdir, uid) {
   // リクエスト
   xhr.open("PUT", '/init');
   //リクエスト送信
-  xhr.setRequestHeader('Content-Type', 'application/json' , false);
+  xhr.setRequestHeader('Content-Type', 'application/json');
   let json_src = {
     "dir": currdir,
     "uid": uid
