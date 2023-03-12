@@ -248,7 +248,7 @@ function initDir(currdir, uid) {
         bgcolor.appendChild(divs[j]);
       }
 
-      let currdir = document.getElementById('currdir');
+      const currdir = $('currdir');
 
       while (currdir.firstChild) {
         currdir.removeChild(currdir.firstChild);
