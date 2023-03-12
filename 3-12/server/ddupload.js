@@ -33,10 +33,12 @@ window.onload = function(filesinfo) {
 
   /* カレントディレクトリテーブルの作成 */
   initDir(current[depth], uid);
+
   if (hometext.length === 0) {
     hometext = currtext;
   }
-
+  
+  /* テスト */
   console.log('currinfo : ')
   console.log(currinfo);
   console.log('current : ')
