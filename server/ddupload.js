@@ -152,9 +152,10 @@ function initDir(currdir, uid) {
     }
   }
 
-  if (currdir.cmds.includes(' UP ')) {
+  if (cmds.includes(' UP ')) {
     if ($('uploadButton').disabled) {
       $('uploadButton').disabled = false;
+    if ($('ftype').disabled) {
       $('ftype').disabled = false;
     }
   } else if (!($('uploadButton').disabled)) {
