@@ -13,7 +13,16 @@ let cmdset = setCmdSet();  // コマンド一覧作成
 let depth = 0;  // ホームディレクトリからの深度
 const texttype = [ 'TXT', 'C', 'CPP', ' SQL', 'Java', 'HTML', 'CSS', ];
 let hometext = [];
-let currtext = []
+let currtext = [];
+
+/* 初期設定 */
+if(current == null) {
+    current = [{
+      cmds : [' UP ', '作成' ], 
+      name : "Server/Home/" + uname,
+      type : "DIR" 
+    }]
+  }
 
 /* id 属性の総取得 */
 'use strict'
@@ -24,21 +33,15 @@ const $ = (id) => document.getElementById(id);
 window.onload = function(filesinfo) {
   $('uid').value = uid;
   //setUname(uid);
-  /* 初期設定 */
-  if(current == null) {
-    current = [{
-      cmds : [' UP ', '作成' ], 
-      name : "Server/Home/" + uname,
-      type : "DIR" 
-    }]
-  }
 
   /* カレントディレクトリテーブルの作成 */
   initDir(current[depth], uid);
 
+  /* uploadに使用する
   if (hometext.length === 0) {
     hometext = currtext;
   }
+*/
 
   $('dname').value = current[depth].name + '/'
   
