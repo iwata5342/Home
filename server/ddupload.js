@@ -4,8 +4,8 @@
  * 1.uploadボタンの消失
  */
 
-let currinfo = [];  // これまで歩んだファイルパスを格納
-let current;  // currentdirの情報
+let currinfo = [];  // これまで歩んだディレクトリのオブジェクト配列
+let current = []  // カレントディレクトリエントリ
 let homedir;  // homedirの情報 使わないかも
 let uid = 12023004; // 取得方法不明
 let uname = "OASYS2204"; // 取得方法不明
@@ -14,10 +14,11 @@ let depth = 0;  // ホームディレクトリからの深度
 const texttype = [ 'TXT', 'C', 'CPP', ' SQL', 'Java', 'HTML', 'CSS', ];
 let hometext = [];
 let currtext = [];
+const HOME = 0
 
 /* 初期設定 */
-if(current == null) {
-    current = [{
+if(currinfo[HOME].length == 0) {
+    currinfo[HOME] = [{
       cmds : [' UP ', '作成' ], 
       name : "Server/Home/" + uname,
       type : "DIR" 
@@ -31,20 +32,22 @@ const $ = (id) => document.getElementById(id);
 
 /* ロード後の処理 */
 window.onload = function(filesinfo) {
+  
+  /* uidが必要な要素にuidをセット */
   $('uid').value = uid;
-  //setUname(uid);
 
+  /* ディレクトリ情報が必要な要素にカレントディレクトリのパスをセット
+*/
+  $('dname').value = currinfo[depth].name + '/'
+  
   /* カレントディレクトリテーブルの作成 */
-  initDir(current[depth], uid);
+  initDir(currinfo[depth], uid);
 
-  /* uploadに使用する
+  /* uploadに使用する */
   if (hometext.length === 0) {
     hometext = currtext;
   }
-*/
 
-  $('dname').value = current[depth].name + '/'
-  
   /* テスト */
   console.log('currinfo : ')
   console.log(currinfo);
@@ -56,8 +59,7 @@ window.onload = function(filesinfo) {
   console.log(hometext)
   console.log('val')
 
-  $('diffButton').addEventListener('onclick', initDiffCmd());
-
+  initDiffCmd();
   initMkDirButton();
 }
 
@@ -499,7 +501,7 @@ function initMkDirButton() {
 }
 
 function initDiffCmd() {
-  $("diffButton").addEventListener('click', (evt) => {
+  $("diffButton").addEventListener('onclick', (evt) => {
     evt.preventDefault()
     const id = 4;
     console.log($('before').value)
