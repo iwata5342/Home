@@ -5,7 +5,7 @@ class Database {
     };
 
     async chNameFromSymToDir(name) {
-        let sym = { code: 0};
+        let sym = { code: 0 };
         let dir = { code: 0 ,
                     name: "" 
                   };
