@@ -19,57 +19,6 @@ let currtext = []
 'use strict'
 
 const $ = (id) => document.getElementById(id);
-const selectedFiles = [];
-
-const setProgressBar = (percent) => {
-  if (percent < 0) {
-    showProgressBar(false)
-  } else {
-    showProgressBar(true)
-    $('progressBar').style.width = `${percent}%`
-  }
-}
-
-const showProgressBar = (show) => {
-  const c = $('progressBarContainer')
-  if (show) {
-    removeClass(c, 'invisible')
-    addClass(c, 'visible')
-  } else {
-    removeClass(c, 'visible')
-    addClass(c, 'invisible')
-    $('progressBar').style.width = '0%'
-  }
-}
-
-const removeClass = (elm, cls) => {
-  if (elm.classList.contains(cls)) {
-    elm.classList.remove(cls)
-  }
-}
-
-const addClass = (elm, cls) => {
-  if (!elm.classList.contains(cls)) {
-    elm.classList.add(cls)
-  }
-}
-
-const clear = () => {
-  showProgressBar(false)
-  selectedFiles.length = 0
-  updateFileList()
-}
-
-const updateFileList = () => {
-  const fl = $('fileList')
-  fl.innerHTML = '' // remove all children
-  for (const f of selectedFiles) {
-    const li = document.createElement('li')
-    li.innerHTML = f.name
-    li.className = 'list-group-item'
-    fl.appendChild(li)
-  }
-}
 
 /* ロード後の処理 */
 window.onload = function(filesinfo) {
