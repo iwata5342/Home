@@ -1,0 +1,1 @@
+clang++ -c -Wall -Wextra -O3 -o Server/Home/OASYS2204/C++.o Server/Home/OASYS2204/C++.cpp
