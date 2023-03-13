@@ -155,12 +155,17 @@ function initDir(currdir, uid) {
   if (cmds.includes(' UP ')) {
     if ($('uploadButton').disabled) {
       $('uploadButton').disabled = false;
+    }
     if ($('ftype').disabled) {
       $('ftype').disabled = false;
     }
-  } else if (!($('uploadButton').disabled)) {
+  } else {
+    if (!($('uploadButton').disabled)) {
       $('uploadButton').disabled = true;
+    }
+    if (!($('ftype').disabled)) {
       $('ftype').disabled = true
+    }
   }
 
   const xhr = new XMLHttpRequest();
