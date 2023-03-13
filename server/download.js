@@ -13,7 +13,7 @@ class Downloader {
             case 'CSS':
                 mime_type = 'text/plain';
                 break;
-            case 'EXE:
+            case 'EXE':
                 mime_type = 'application/octet-stream';
                 break;
             case 'HTML':
@@ -22,7 +22,8 @@ class Downloader {
             default:
                 return err;
         }
-
+        
+        file.name = chFnameForServer(); /* psql.js or exe.js */
         const source = fs.readFileSync(file.name);
     }
 
