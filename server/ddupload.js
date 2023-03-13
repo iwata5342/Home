@@ -68,14 +68,14 @@ window.onload = function(filesinfo) {
     let elem = $('mkdirtext');
     let val = elem.value;
     if (val.length > 21 || val.length == 0) {
-      alert('err');
+      alert('ファイル名が長すぎるか入力されていません');
       return
     }
       
     const xhr = new XMLHttpRequest();
     xhr.open("PUT", '/mkdir');
     xhr.setRequestHeader('Content-Type', 'application/json' , false);
-    const pathname = current[0].name +  '/' + val;
+    const pathname = current[depth].name +  '/' + val;
     elem.setAttribute('value', '');
     const json_text = JSON.stringify({ uid : uid, name: pathname });
     console.log(JSON.parse(json_text));
