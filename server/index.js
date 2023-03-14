@@ -37,6 +37,11 @@ app.get('/init_cmd_list', (req, res) => {
   return cmdSearcher.getCommandList(res);
 });
 
+app.put('/download', (req, res) => {
+  const Downloader = require('.Downloader.js');
+  const result = Downloader.download(req.body.filename);
+  return res.status(200).json(result);
+
 app.put('/init', (req, res) => {
     const database = require('./psql.js');
     return database.getFiles(req.body.dir, req.body.uid, res);
