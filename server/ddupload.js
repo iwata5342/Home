@@ -375,21 +375,6 @@ function download (path, name) {
   xhr.send();
 }
 
-/* 使わないかも */
-function remove(fname) {
-  const xhr = new XMLHttpRequest();
-  xhr.open("PUT", '/remove');
-  xhr.send(fname);
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-        const rettext = xhr.responseText;
-        let textnox = document.getElementById('textbox')
-        textbox.innerHTML = rettext;
-    }
-  }
-}
-
 function cmdExec(file, id, uid) {
   const xhr = new XMLHttpRequest();
   // リクエスト
@@ -445,15 +430,11 @@ function cmdExec(file, id, uid) {
 
 function initMkDirButton() {
   $('mkdir').addEventListener('click', event => {
-    event.preventDefault()
-    event.stopPropagation()
     let elem = $('mkdirtext');
     let val = elem.value;
     if (val.length > 21 || val.length == 0) {
         elem.value = '';
-        $('msg').setAttribute('class', 'text-danger');
-        $('msg').innerHTML = 'ファイル名が長すぎるか入力されていません';
-        initDir(currinfo[depth], uid)
+        alert('ファイル名が長すぎるか、ファイル名が入力されていません')
     } else {
       const xhr = new XMLHttpRequest();
       xhr.open("PUT", '/mkdir');
@@ -466,24 +447,17 @@ function initMkDirButton() {
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             returnInfo = JSON.parse(xhr.responseText);
-            if (returnInfo.err) {
-              $('msg').setAttribute('class', 'text-danger');
-            } else {
-              $('msg').setAttribute('class', 'text-success');
-            }
-            $('msg').innerHTML = returnInfo.text;
+            alert(returnInfo.text);
             initDir(currinfo[depth], uid)
         }
       }
     }
-  }, false)
+  })
 }
 
 function initDiffCmd() {
   $("diffButton").addEventListener('click', (evt) => {
-    evt.preventDefault()
     const id = 4;
-    console.log($('before').value)
     const files = [ JSON.parse($('before').value), JSON.parse($('after').value) ];
     cmdExec(files, id, uid);
   })
