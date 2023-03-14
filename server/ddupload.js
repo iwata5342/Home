@@ -1,6 +1,7 @@
 // JavaScript source code
 
 /** @bug
+ * 実行ファイルのダウンロードはできないのでコマンド削除
  */
 
 let currinfo = [];  // これまで歩んだディレクトリのオブジェクト配列
