@@ -48,18 +48,6 @@ window.onload = (filesinfo) => {
   if (hometext.length === 0) {
     hometext = currtext;
   }
-
-  /* テスト */
-  console.log('currinfo : ')
-  console.log(currinfo);
-  console.log('current : ')
-  console.log(current)
-  console.log('homedir : ')
-  console.log(homedir)
-  console.log('hometext : ')
-  console.log(hometext)
-  console.log('val')
-
 }
 
 /* コマンド一覧のセッティング */
