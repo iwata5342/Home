@@ -297,44 +297,6 @@ function ret() {
   initDir(currinfo[depth], uid);
 }
 
-/* 使わないかも */
-function chIdToCmd(fno, cmdId) {
-  const xhr = new XMLHttpRequest();
-
-  xhr.open("GET", '/command', false);
-
-  /* 送信情報 (JSON) の作成 */
-  let json_text
-  if (fno.length == 1) {
-    json_text = {
-      file: current[fno],
-      cmdId: cmdId
-    }
-  } else if (fno.length == 2) {
-    json_text = {
-      before: current[fno[1]],
-      after: current[fno[2]],
-      cmdId: cmdId
-    }
-  } else if (fno.length == 0) {
-    json_text = cmdId
-  }
-  xhr.send(json_text);
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-        const rettext = xhr.responseText;
-        let textbox = document.getElementById('textbox')
-        textbox.innerHTML = rettext;
-        return textbox
-    }
-    const rettext = xhr.responseText;
-    let textbox = document.getElementById('textbox')
-    textbox.innerHTML = 'UDD'
-    return textbox
-  }
-}
-
 function download (file) {
     const nameIndex = file.name.lastIndexOf('/');
     const filename = file.name.substring(nameIndex + 1);
@@ -415,6 +377,8 @@ function cmdExec(file, id, uid) {
         terminal.setAttribute('class', 'language-diff diff-highlight line-numbers code-toolbar');
     }
     Prism.highlightAll();
+
+    // コンパイルの場合のif分
     initDir(currinfo[depth], uid);
   }
 
@@ -473,7 +437,7 @@ function initUploadButton() {
     if ($('file').value.length === 0) {
       $('up').reset();
       alert('ファイルを選択してください');
-    } else {
+    } else { // if文を追加。ファイル名の判定。
       const formData = new FormData($('up'));console.log(formData)
     
       const xhr = new XMLHttpRequest();
