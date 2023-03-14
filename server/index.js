@@ -38,7 +38,7 @@ app.get('/init_cmd_list', (req, res) => {
 });
 
 app.put('/download', (req, res) => {
-  const Downloader = require('.Downloader.js');
+  const Downloader = require('./download.js');
   const result = Downloader.download(req.body.filename);
   return res.status(200).json(result);
 
