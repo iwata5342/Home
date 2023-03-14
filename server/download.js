@@ -1,30 +1,26 @@
 class Downloader {
     constructor() { }
 
-    createBlob(file) {
-        let mime_type;
-      
-        switch(file.type) {
+    download(file) {
+        const mime_type = cleateMIME(file.type);
+        const data = 
+
+    createMIME(type) {
+        switch(type) {
             case 'TXT':
             case 'C':
             case 'CPP':
             case 'SQL':
             case 'Java':
             case 'CSS':
-                mime_type = 'text/plain';
-                break;
+                return 'text/plain';
             case 'EXE':
-                mime_type = 'application/octet-stream';
-                break;
+                return 'application/octet-stream';
             case 'HTML':
-                mime_type = 'text/html';
-                break;
+                return 'text/html';
             default:
-                return err;
+                return null;
         }
-        
-        file.name = chFnameForServer(); /* psql.js or exe.js */
-        const source = fs.readFileSync(file.name);
     }
 
     createMIME(fname) { 
