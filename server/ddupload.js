@@ -39,21 +39,24 @@ window.onload = function(filesinfo) {
   /* カレントディレクトリテーブルの作成 */
   initDir(currinfo[depth], uid);
   $('uploadButton').addEventListener('click', (evt) => {
-
-    const formData = new FormData($('up'));console.log(formData)
+    if ($file.value.length === 0) {
+      alert('ファイルを選択してください');
+    } else {
+      const formData = new FormData($('up'));console.log(formData)
     
-    const xhr = new XMLHttpRequest();
-    xhr.open('post', '/upload');
-    //xhr.setRequestHeader('Content-Type', 'text/plain' , true); // application/octet-stream
-    xhr.send(formData);
+      const xhr = new XMLHttpRequest();
+      xhr.open('post', '/upload');
+      //xhr.setRequestHeader('Content-Type', 'text/plain' , true); // application/octet-stream
+      xhr.send(formData);
 
-    xhr.addEventListener('readystatechange', () => {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log(xhr.response);
-        $('file').value = '';
-        initDir(currinfo[depth], uid);
-      }
-    });
+      xhr.addEventListener('readystatechange', () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          console.log(xhr.response);
+          $('file').value = '';
+          initDir(currinfo[depth], uid);
+        }
+      });
+    }
   });
 
   /* uploadに使用する */
