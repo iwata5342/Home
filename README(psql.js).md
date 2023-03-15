@@ -28,9 +28,10 @@ FILESテーブルにファイル名、uid、B'00111111111'を渡してインサ�
 
 async searchExecCode(引数: ファイルのidとファイルの種別)
 ファイルの種別を種別コードに変換(getTcode())。
-idをDBに渡してcattrを取得。
-attr_codeを生成。
-idをgetCattrに
+idをDBに渡してcattrを取得(getCattr())。
+種別コード上3桁とcattrからattr_codeを生成。
+id, attr_codeより実行コード(ecode)を取得し、返す。
 
 
-async setFile()
+async setFile(引数: ファイル名, 所有者id, ファイル種別)
+DBの FILESテーブルにインサート。
