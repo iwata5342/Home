@@ -17,10 +17,20 @@ async getFiles(引数: ディレクトリエントリオブジェクト, ユー�
 ディレクトリエントリ配列、実行可能コマンド一覧、ファイルタイプ名を格納したディレクトリオブジェクトを作成し、files配列に格納。
 files配列を返す。
 
-async deleteFile()
+async deleteFile(引数:ファイルオブジェクト, responseオブジェクト)
+ディレクトリの場合、ディレクトリ以下のファイルを全てデータベースから削除。
+それ以外はファイル名に合致するファイルをDBから削除する。
+削除メッセージの送信。
 
-async createDir()
+async createDir(引数: uid, ファイル名)
+FILESテーブルにファイル名、uid、B'00111111111'を渡してインサート文発行。
+成功可否を返す。
 
-async searchExecCode()
+async searchExecCode(引数: ファイルのidとファイルの種別)
+ファイルの種別を種別コードに変換(getTcode())。
+idをDBに渡してcattrを取得。
+attr_codeを生成。
+idをgetCattrに
+
 
 async setFile()
