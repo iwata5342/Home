@@ -27,3 +27,4 @@ mkdir(引数: ユーザーID, ファイルパス, response)
 exitsyncでパスを渡してコマンド実行。ファイル存在していれば実行結果を、それ以外はエラーメッセージを返す。
 
 chCmdIDtoExecCode(引数 : cmdID, ファイルタイプ)
+searchExecCode()(※ psql.js, Databaseクラスのメソッド)にcmdID, ファイルタイプを渡し、その
