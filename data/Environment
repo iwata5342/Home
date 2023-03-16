@@ -1,0 +1,18 @@
+<<OS>>
+CentOS 7
+
+<<サーバ>>
+Node.js v16.18.1
+( 外部モジュール )
+・Express v
+・Multer v
+・Body-Parser v
+
+<<データベース>>
+PostgreSQL v
+
+<<その他ライブラリ等>>
+npm v
+jQuery
+Prism.js v1.29.0
+Bootstrap v5.2
