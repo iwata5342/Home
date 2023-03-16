@@ -1,0 +1,15 @@
+CREATE TABLE CMDLIST (
+    CMDID SERIAL PRIMARY KEY,
+    CMDNAME VARCHAR(10)
+);
+
+INSERT INTO CMDLIST(CMDNAME)
+VALUES
+('移動'),
+(' DP '),
+('表示'),
+('差分'),
+(' UP '),
+(' DL '),
+(' CL '),
+('削除');
